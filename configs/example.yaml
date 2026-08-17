@@ -4,28 +4,41 @@ experiment:
   seed: 42
 
 data:
-  train_root: data/train
-  val_root: data/val
-  test_root: data/test
+  development_images_dir: data/development/images
+  development_masks_dir: data/development/masks
+  test_images_dir: data/test/images
+  test_masks_dir: data/test/masks
+  train_ids: data/splits/train.txt
+  val_ids: data/splits/val.txt
+  test_ids: data/splits/test.txt
+  image_extensions: [".png", ".jpg", ".jpeg", ".bmp"]
   num_classes: 3
 
 model:
-  name: unet_resnet34
   pretrained: true
-  in_channels: 3
-  num_classes: 3
+  options: {}
 
 training:
   epochs: 100
   batch_size: 2
+  num_workers: 4
+  crop_height: 1024
+  crop_width: 1024
   learning_rate: 0.0001
+  weight_decay: 0.0001
+
+loss:
+  class_weights: [0.1, 10.0, 1.0]
+  wire_class_id: 1
+  ignore_index: 255
+  profile:
+    ce_weight: 1.0
+    dice_weight: 1.0
+    cldice_weight: 0.0
+    boundary_weight: 0.0
 
 evaluation:
-  metrics:
-    - dice
-    - iou
-    - precision
-    - recall
-    - f1
-    - boundary_f1
-    - hd95
+  boundary_tolerance_px: 3
+  min_component_area_px: 50
+  mover_class_id: 2
+  wire_class_id: 1
