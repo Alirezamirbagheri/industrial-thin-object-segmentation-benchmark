@@ -1,0 +1,31 @@
+experiment:
+  name: example_run
+  output_dir: outputs/example_run
+  seed: 42
+
+data:
+  train_root: data/train
+  val_root: data/val
+  test_root: data/test
+  num_classes: 3
+
+model:
+  name: unet_resnet34
+  pretrained: true
+  in_channels: 3
+  num_classes: 3
+
+training:
+  epochs: 100
+  batch_size: 2
+  learning_rate: 0.0001
+
+evaluation:
+  metrics:
+    - dice
+    - iou
+    - precision
+    - recall
+    - f1
+    - boundary_f1
+    - hd95
