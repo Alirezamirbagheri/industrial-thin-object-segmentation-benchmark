@@ -8,3 +8,7 @@ PyYAML
 tqdm
 scipy
 scikit-image
+albumentations
+transformers
+timm
+ultralytics
