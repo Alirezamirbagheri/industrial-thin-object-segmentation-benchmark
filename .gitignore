@@ -1,16 +1,38 @@
+# Python / environments
 __pycache__/
 *.py[cod]
 .venv/
 venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+
+# IDE / OS
 .idea/
 .vscode/
+.DS_Store
+Thumbs.db
+
+# Secrets / local configuration
 .env
-data/
-outputs/
-models/
-checkpoints/
+.env.*
+*.key
+*.pem
+*credentials*
+*secret*
+
+# Research data and generated artifacts
+/data/
+/outputs/
+/models/
+/checkpoints/
+/logs/
+*.log
 *.pth
 *.pt
 *.onnx
 *.engine
+*.trt
 *.ckpt
+*.h5
+*.hdf5
