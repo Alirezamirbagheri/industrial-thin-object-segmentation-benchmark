@@ -55,9 +55,9 @@ The original research workspace contained datasets, checkpoints, server-specific
 
 The benchmark expects a three-class semantic setup: **background (0), wire (1), mover (2)**. For the project's three-mask annotation format, wire pixels take priority over mover pixels in overlap regions.
 
-## Industrial context
+## Related system
 
-The segmentation module provides pixel-wise perception for a larger system that extracts harness geometry, tracks multiple movers and supports collision-aware motion planning and PLC-based execution.
+This benchmark supports the perception module of the final **Version 3** wire-harness manipulation system. The system-level portfolio showcase is available at [`wire-harness-ai-motion-planning`](https://github.com/Alirezamirbagheri/wire-harness-ai-motion-planning).
 
 ## License
 
